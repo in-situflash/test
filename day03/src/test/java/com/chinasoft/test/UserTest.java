@@ -12,14 +12,9 @@ import com.chinasoft.pojo.User;
 import com.chinasoft.util.SessionUtil;
 
 public class UserTest {
-<<<<<<< HEAD
 	
 	@Test
-	public void testMerge2(){}
-=======
-	@Test
-	public void testMerge6(){}
->>>>>>> branch 'master' of git@github.com:in-situflash/test.git
+	public void Merge(){}
 	
 	/* 测试动态添加用户 */
 	@Test
