@@ -12,7 +12,8 @@ import com.chinasoft.pojo.User;
 import com.chinasoft.util.SessionUtil;
 
 public class UserTest {
-
+	
+	@Test
 	public void testMerge2(){}
 	
 	/* 测试动态添加用户 */
