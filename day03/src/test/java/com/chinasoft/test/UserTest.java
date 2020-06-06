@@ -13,7 +13,7 @@ import com.chinasoft.util.SessionUtil;
 
 public class UserTest {
 
-	public void testMerge5(){}
+	public void testMerge2(){}
 	
 	/* 测试动态添加用户 */
 	@Test
