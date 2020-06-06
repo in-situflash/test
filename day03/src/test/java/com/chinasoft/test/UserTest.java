@@ -12,8 +12,10 @@ import com.chinasoft.pojo.User;
 import com.chinasoft.util.SessionUtil;
 
 public class UserTest {
+
+	public void testMerge(){}
 	
-	/* ²âÊÔ¶¯Ì¬Ìí¼ÓÓÃ»§ */
+	/* æµ‹è¯•åŠ¨æ€æ·»åŠ ç”¨æˆ· */
 	@Test
 	public void testInsertDynamic() {
 		SqlSession session = SessionUtil.getSessionFactory().openSession();
@@ -30,7 +32,7 @@ public class UserTest {
 		session.close();
 	}
 	
-	/* ²âÊÔ·ÖÒ³²éÑ¯ÓÃ»§ */
+	/* æµ‹è¯•åˆ†é¡µæŸ¥è¯¢ç”¨æˆ· */
 	@Test
 	public void testSelectPaging() {
 		SqlSession session = SessionUtil.getSessionFactory().openSession();
@@ -52,12 +54,12 @@ public class UserTest {
 	public void selectOneByPar() {
 		SqlSession session = SessionUtil.getSessionFactory().openSession();
 		UserMapper mapper = session.getMapper(UserMapper.class);
-		User user = mapper.selectById(5);// µÚÒ»´ÎÖ´ĞĞsqlÓï¾ä
+		User user = mapper.selectById(5);// ç¬¬ä¸€æ¬¡æ‰§è¡Œsqlè¯­å¥
 		System.out.println(user);
 
-		// session.clearCache();// Çå³ıÒ»¼¶»º´æ
+		// session.clearCache();// æ¸…é™¤ä¸€çº§ç¼“å­˜
 
-		User user1 = mapper.selectById(5);// µÚ¶ş´ÎÖ´ĞĞsqlÓï¾ä
+		User user1 = mapper.selectById(5);// ç¬¬äºŒæ¬¡æ‰§è¡Œsqlè¯­å¥
 		System.out.println(user1);
 
 		session.close();
@@ -70,13 +72,13 @@ public class UserTest {
 
 		SqlSession session = SessionUtil.getSessionFactory().openSession();
 		UserMapper mapper = session.getMapper(UserMapper.class);
-		User user = mapper.selectById(5);// µÚÒ»´ÎÖ´ĞĞsqlÓï¾ä System.out.println(user);
+		User user = mapper.selectById(5);// ç¬¬ä¸€æ¬¡æ‰§è¡Œsqlè¯­å¥ System.out.println(user);
 		System.out.println(user);
 		session.close();
 
 		SqlSession session1 = SessionUtil.getSessionFactory().openSession();
 		UserMapper mapper1 = session1.getMapper(UserMapper.class);
-		User user1 = mapper1.selectById(5);// µÚÒ»´ÎÖ´ĞĞsqlÓï¾ä
+		User user1 = mapper1.selectById(5);// ç¬¬ä¸€æ¬¡æ‰§è¡Œsqlè¯­å¥
 		System.out.println(user1);
 		session1.close();
 
