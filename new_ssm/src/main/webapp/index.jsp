@@ -8,28 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="http://localhost:8080/new_ssm/user/selectById">查询用户</a>
-	
-	<a href="http://localhost:8080/new_ssm/user/insertByUser">添加用户</a>
-	
-	<a href="http://localhost:8080/new_ssm/user/deleteById">删除用户</a>
-	
-	<a href="http://localhost:8080/new_ssm/user/updateByUser">更新用户</a>
-	
-	<br>
-	<c:if test="${user!=null}">
-	 	id = ${user.id} 
-		username = ${user.username }
-		password = ${user.password }
-		phone = ${user.phone }
-		address = ${user.address }
-		email = ${user.email }
-		c_id = ${user.c_id }
-	</c:if>
-		
-
-	${info}
-	
-	
+	<jsp:forward page="/WEB-INF/login.jsp" />　
 </body>
 </html>
