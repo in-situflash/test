@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chinasoft.mapper.GenderMapper">
+
+	<!-- 一对多关联 嵌套查询 -->
+	<resultMap type="Gender" id="genderAssociateStudent">
+		<collection property="students" ofType="student"
+			column="id" javaType="list" select="selectStudentsByGender"></collection>
+	</resultMap>
+	<select id="selectGenderAssociateStudent" parameterType="int"
+		resultMap="genderAssociateStudent"> select * from gender where id = #{id}
+	</select>
+	<select id="selectStudentsByGender" resultType="Student">
+		select * from
+		student where c_id = #{id}
+	</select>
+
+
+	<!-- 一对多关联 嵌套结果映射 -->
+	<resultMap type="Gender" id="genderAssociateStudent2">
+		<id property="id" column="id" />
+		<result property="c_name" column="c_name" />
+		<result property="c_teacher" column="c_teacher" />
+		<collection property="students" ofType="student"
+			javaType="list">
+			<id property="id" column="id" />
+			<result property="username" column="username" />
+			<result property="password" column="password" />
+			<result property="phone" column="phone" />
+			<result property="address" column="address" />
+			<result property="email" column="email" />
+			<result property="c_id" column="c_id" />
+		</collection>
+	</resultMap>
+	<select id="selectGenderAssociateStudent2" parameterType="int"
+		resultMap="genderAssociateStudent2">
+		select * from gender,student where student.c_id=gender.id
+		and gender.id=#{id}
+	</select>
+
+</mapper>
