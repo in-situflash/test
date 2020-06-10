@@ -9,12 +9,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ArticleDetail {
 	private int a_id;								  //文章id
-	private String title;							  //标题（数据库里还没有）
+	private String title;							  //标题
 	private String essay;							  //文章内容
 	private String username;						  //发帖人用户名
 	private Date a_createtime;                        //发帖时间
 	private Date create_time;                         //发帖人注册时间
-	private int likes;                                //点赞数（数据库里还没有）
+	private int likes;                                //点赞数
 	public int getA_id() {
 		return a_id;
 	}
