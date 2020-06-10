@@ -133,7 +133,8 @@ function editComCheck(cmUUID){
 	}
 	
 
-	    		window.location.replace("myComment.html?radm="+Math.random());
+//	    		window.location.replace("myComment.html?radm="+Math.random());
+				window.location.replace("comment/mycomment");
 	    		
 
 	

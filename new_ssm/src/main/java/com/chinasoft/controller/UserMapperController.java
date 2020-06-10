@@ -15,6 +15,14 @@ public class UserMapperController {
 
 	@Autowired
 	UserMapperServiceImpl service;
+	
+	@RequestMapping("/test")
+	@ResponseBody
+	public String test() {
+		System.out.println("Entering userTest...");
+		
+		return "Success!";
+	}
 
 	@RequestMapping("/selectById")
 	@ResponseBody

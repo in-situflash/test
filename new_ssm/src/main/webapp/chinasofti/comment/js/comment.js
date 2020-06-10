@@ -100,6 +100,6 @@ function returnPostList(){
 	}else if(returnpage.trim()=="myPost"){
 		window.location.replace("myPost.html");
 	}else if(returnpage.trim()=="myCom"){
-		window.location.replace("myComment.html");
+		window.location.replace("comment/mycomment");
 	}
 }
