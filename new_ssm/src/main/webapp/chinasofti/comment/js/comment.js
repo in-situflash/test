@@ -96,9 +96,9 @@ function DELETE_COM(){
 }
 function returnPostList(){
 	if(returnpage.trim()=="post"){
-		window.location.replace("post.html");
+		window.location.replace("post.jsp");
 	}else if(returnpage.trim()=="myPost"){
-		window.location.replace("myPost.html");
+		window.location.replace("mypost.jsp");
 	}else if(returnpage.trim()=="myCom"){
 		window.location.replace("comment/mycomment");
 	}

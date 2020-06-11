@@ -9,7 +9,7 @@ var menuUserName="";
  */
 function loadMenu(){
 			
-	var json='[{"id": "1","name": "贴吧","icon": "","url": "","parentId": "","childs": [{"id": "11","name": "所有文章","icon": "/xingxing.png","url": "post.html","parentId": "4","childs": []},{"id": "12","name": "我的文章","icon": "/xingxing.png","url": "myPost.html","parentId": "4","childs": []},{"id": "14","name": "我的评论","icon": "/xingxing.png","url": "comment/mycomment","parentId": "4","childs": []},{"id": "15","name": "语音设置","icon": "/xingxing.png","url": "audioSet.html","parentId": "4","childs": []},{"id": "16","name": "个人设置","icon": "/xingxing.png","url": "perSet.html","parentId": "4","childs": []},{"id": "17","name": "上传头像","icon": "/xingxing.png","url": "uploadHead.html","parentId": "4","childs": []},{"id": "18","name": "用户管理","icon": "/xingxing.png","url": "userManage.html","parentId": "4","childs": []}]}]';
+	var json='[{"id": "1","name": "贴吧","icon": "","url": "","parentId": "","childs": [{"id": "11","name": "所有文章","icon": "/xingxing.png","url": "post.jsp","parentId": "4","childs": []},{"id": "12","name": "我的文章","icon": "/xingxing.png","url": "myPost.jsp","parentId": "4","childs": []},{"id": "14","name": "我的评论","icon": "/xingxing.png","url": "comment/mycomment","parentId": "4","childs": []},{"id": "15","name": "语音设置","icon": "/xingxing.png","url": "audioSet.jsp","parentId": "4","childs": []},{"id": "16","name": "个人设置","icon": "/xingxing.png","url": "perSet.jsp","parentId": "4","childs": []},{"id": "17","name": "上传头像","icon": "/xingxing.png","url": "uploadHead.jsp","parentId": "4","childs": []},{"id": "18","name": "用户管理","icon": "/xingxing.png","url": "userManage.jsp","parentId": "4","childs": []}]}]';
 	// jquery的方法
 	var jsonObj = $.parseJSON(json)
 
@@ -604,7 +604,7 @@ function GetQueryString(name)
 function loginOut(){
 
    
-       window.location.replace("login.html");
+       window.location.replace("login.jsp");
 
 
 

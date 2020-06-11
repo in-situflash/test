@@ -1,11 +1,14 @@
 package com.chinasoft.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Comment {
 	private int c_id;						//评论id
 	private String content;					//评论内容
 	private String username;     			//评论用户名
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+08:00")
 	private Date c_createtime;				//评论时间
 	private int a_id; 						//对应文章id
 	private int c_likes;					//评论点赞数
