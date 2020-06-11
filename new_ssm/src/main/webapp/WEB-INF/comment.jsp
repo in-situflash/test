@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html style="height: auto;">
 <head>
@@ -64,16 +65,18 @@
 							</div>
 						</div>
 					</div>
+					
 					<div id="postText">
 						<span>${articleDetail.essay}</span>
 					</div>
-					<div id="postAtt">
-						|&nbsp;<a id="praisecNum" href="javascript:void(0);"
-							onclick="hotsPraiseClick('46dc37890bbc49629384024d2f17beda','c9c8ee13e83149379d56d34ea7913d69')">赞：</a>${articleDetail.likes}</div>
-				</div>
+						<div id="postAtt">
+							|&nbsp;<a id="praisecNum" href="javascript:void(0);" class="a_likes" >赞：${articleDetail.a_likes}</a>
+							<input value="${articleDetail.a_id}" hidden="true"></input>
+						</div>
+					</div>
 
 			</div>
-
+ 
 		</div>
 		<div class="row">
 			<div class="col-12">
@@ -85,8 +88,6 @@
 						<div class="col-md-2 col-md-offset-7" id="comAddAndDeleteDiv">
 							<button class="btn  btn-success btn-sm" type="button"
 								onclick="ADD_COM()">评论</button>
-							<button class="btn  btn-danger btn-sm" type="button"
-								onclick="DELETE_COM()">删除</button>
 							<button class="btn btn-default btn-sm" type="button"
 								onclick="returnPostList()">返回</button>
 						</div>
@@ -94,8 +95,8 @@
 				</div>
 			</div>
 		</div>
-
-
+	
+		<c:forEach items="${comments}" var="item" varStatus="status"> 
 		<div class="row">
 			<div class="col-12">
 				<div class="card">
@@ -104,28 +105,28 @@
 						<div id="example2_wrapper"
 							class="dataTables_wrapper container-fluid dt-bootstrap4">
 							<div class="card-header" style="background-color: #17a2b8">
-								<h3 class="card-title">ç­é¨è¯è®º</h3>
+								<h3 class="card-title">热门评论</h3>
 							</div>
 							<div class="row">
 								<div class="form-inline col-sm-12">
 									<div>
-										<img src="headPhoto/default/default.jpg"
+										<img src="/new_ssm/headPhoto/default/default.jpg"
 											style="whith: 80px; height: 80px">
 									</div>
 									<div>
 										<table>
 											<tbody>
 												<tr>
-													<td>è¯è®ºäººï¼wangxiaohua</td>
+													<td>评论人：${item.username }</td>
 												</tr>
 												<tr>
-													<td>è¯è®ºäººæ³¨åæ¶é´:2019-03-12 12:47:11</td>
+													<td>评论人注册时间：</td>
 												</tr>
 												<tr>
-													<td>è¯è®ºæ¶é´ï¼2019-03-18 21:03:05</td>
+													<td id="c_createtime${status.count}"></td>
 												</tr>
 												<tr>
-													<td>å é¤éä¸­ï¼<input name="DELETE_CHECK_NAME"
+													<td>删除选中：<input name="DELETE_CHECK_NAME"
 														type="checkbox" value="c9c8ee13e83149379d56d34ea7913d69"></td>
 												</tr>
 											</tbody>
@@ -133,15 +134,19 @@
 									</div>
 								</div>
 								<div class="col-sm-12">
-									<span>è¿æ¯æµè¯æç« 3è¯è®º</span>
+									<span>${item.content }</span>
 								</div>
-								<div class="col-sm-12">
-									<audio
-										src="/postbar/audio/c9c8ee13e83149379d56d34ea7913d69.mp3"
-										controls="controls" style="height: 20px"></audio>
-									&nbsp;|&nbsp;<a id="praisecNum" href="javascript:void(0);"
-										onclick="hotsPraiseClick('46dc37890bbc49629384024d2f17beda','c9c8ee13e83149379d56d34ea7913d69')">èµï¼</a>
-									1
+								<div style="width:86%;"> 
+									<div style="float:left">
+										<div class="col-sm-12" id="commentVoice${status.count}" >
+											&nbsp;|&nbsp;
+											<a id="praisecNum" class="c_likes"  href="javascript:void(0);" onclick="hotsPraiseClick('46dc37890bbc49629384024d2f17beda','c9c8ee13e83149379d56d34ea7913d69')">赞：${item.c_likes}</a>
+											<input value="${item.c_id}" hidden="true"></input>
+										</div>
+									</div>
+									<div style="float:right" id="comAddAndDeleteDiv">
+										<button value="${item.c_id}" class="btn  btn-danger btn-sm DELETE_COM" type="button" >删除</button>
+									</div>   
 								</div>
 							</div>
 							<hr>
@@ -153,65 +158,8 @@
 			</div>
 
 		</div>
-
-		<div class="row">
-			<div class="col-12">
-				<div class="card">
-
-					<div class="card-body">
-						<div id="example3_wrapper"
-							class="dataTables_wrapper container-fluid dt-bootstrap4">
-							<div class="card-header" style="background-color: #17a2b8">
-								<h3 class="card-title">å¨é¨è¯è®º</h3>
-							</div>
-							<div class="row">
-								<div class="form-inline col-sm-12">
-									<div>
-										<img src="headPhoto/default/default.jpg"
-											style="whith: 80px; height: 80px">
-									</div>
-									<div>
-										<table>
-											<tbody>
-												<tr>
-													<td>è¯è®ºäººï¼wangxiaohua</td>
-												</tr>
-												<tr>
-													<td>è¯è®ºäººæ³¨åæ¶é´:2019-03-12 12:47:11</td>
-												</tr>
-												<tr>
-													<td>è¯è®ºæ¶é´ï¼2019-03-18 21:03:05</td>
-												</tr>
-												<tr>
-													<td>å é¤éä¸­ï¼<input name="DELETE_CHECK_NAME"
-														type="checkbox" value="c9c8ee13e83149379d56d34ea7913d69"></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-								<div class="col-sm-12">
-									<span>è¿æ¯æµè¯æç« 3è¯è®º</span>
-								</div>
-								<div class="col-sm-12">
-									<audio
-										src="/postbar/audio/c9c8ee13e83149379d56d34ea7913d69.mp3"
-										controls="controls" style="height: 20px"></audio>
-									&nbsp;|&nbsp;<a id="praisecNum" href="javascript:void(0);"
-										onclick="hotsPraiseClick('46dc37890bbc49629384024d2f17beda','c9c8ee13e83149379d56d34ea7913d69')">èµï¼</a>
-									1
-								</div>
-							</div>
-							<hr>
-						</div>
-					</div>
-					<!-- /.card-body -->
-				</div>
-
-			</div>
-
-		</div>
-
+		</c:forEach>
+		
 	</div>
 
 
@@ -219,7 +167,7 @@
 	<!--<div id="ORG_ADD_DIV_ID" class="card card-info" style="display:none">  -->
 	<div id="COM_ADD_DIV_ID" class="card card-info" style="display: none">
 		<div class="card-header">
-			<h3 class="card-title">è¯è®ºç¼è¾</h3>
+			<h3 class="card-title">评论编辑</h3>
 		</div>
 		<div class="form-horizontal">
 
@@ -227,7 +175,7 @@
 
 
 				<div class="form-group">
-					<label for="JI_JOB_NAME" class="col-sm-2 control-label">è¯è®ºï¼</label>
+					<label for="JI_JOB_NAME" class="col-sm-2 control-label">评论：</label>
 					<div class="col-sm-10">
 						<textarea name="POST_ADD_DES" id="COM_ADD_DES"
 							class="form-control" style="height: 100px;"> </textarea>
@@ -236,9 +184,9 @@
 				<!-- /.card-body -->
 				<div class="card-footer col-md-3 col-md-offset-4"
 					style="width: 100%" align="center">
-					<button type="button" class="btn btn-info" onclick="addComCheck()">æäº¤</button>
+					<button type="button" class="btn btn-info" onclick="addComCheck()">提交</button>
 					<button type="button" class="btn btn-default"
-						onclick="returnComList()">è¿å</button>
+						onclick="returnComList()">返回</button>
 				</div>
 				<div class="card-footer col-md-3 col-md-offset-4" id="tishi"
 					style="text-align: center; color: red; font-size: 15px"></div>
@@ -289,11 +237,13 @@
 		$(function() {
 			var a = "${articleDetail.a_createtime}";
 			$("#a_createtime").html("发帖时间：" + GMTToStr(a));
-			console.log(a);
-
+			<c:forEach var="item" items="${comments}" varStatus="status"> 
+				var text = "#c_createtime"+${status.count};
+				$(text).html("评论时间：" + GMTToStr("${item.c_createtime}"));
+			</c:forEach> 
 		});
 
-		function audioPlay(text) {
+		function audioPlay(text,id) {
 			var zhText = text;
 			zhText = encodeURI(zhText);
 			var audio = "<audio style=\"height:20px\" controls=\"controls\">"
@@ -302,9 +252,70 @@
 					+ "\" type=\"audio/mpeg\">"
 					+ "<embed height=\"100\" width=\"100\" src=\"http://tts.baidu.com/text2audio?text="
 					+ zhText + "\">" + "</audio>";
-			$('#postAtt').prepend(audio);
+			$(id).prepend(audio);
 		}
-		audioPlay("${articleDetail.essay}");
+		audioPlay("${articleDetail.essay}","#postAtt");
+		<c:forEach var="item" items="${comments}" varStatus="status"> 
+			var id = "#commentVoice"+${status.count};
+			audioPlay("${item.content}",id);
+		</c:forEach> 
+
+		$(".DELETE_COM").click(function(){
+			var chk_value =[]; 
+		    $('input[name="DELETE_CHECK_NAME"]:checked').each(function(){ 
+		        chk_value.push($(this).val()); 
+		    }); 
+		    if(chk_value.length==0){
+		    	$.MsgBox.Alert("消息","我是新的请先选择需要删除的评论！");
+		    	return;
+		    }
+		    var c_id = $(this).val();
+		    window.location.href = "http://localhost:8080/new_ssm/articleDetail/deleteCommentByC_id?c_id="+c_id;
+		});	
+		$(".c_likes").click(function(){
+			var target = $(this);
+		   	var dataSend = {
+	       		c_id:target.next().val()
+	       	};
+	       
+		    $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/new_ssm/articleDetail/updateC_likesByC_id",
+                data: JSON.stringify(dataSend),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (data) {
+                	target.html("赞："+data.c_likes); 
+                }, 
+                error:function(){ 
+                	alert("发生错误"); 
+                }
+                
+            });
+		});		    	
+		$(".a_likes").click(function(){
+			var target = $(this);
+		   	var dataSend = {
+	       		a_id:target.next().val()
+	       	};
+	       
+		    $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/new_ssm/articleDetail/updateA_likesByA_id",
+                data: JSON.stringify(dataSend),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                success: function (data) {
+                	target.html("赞："+data.a_likes); 
+                }, 
+                error:function(){ 
+                	alert("发生错误"); 
+                }
+                
+            });
+		});		    		
 	</script>
 </body>
 </html>

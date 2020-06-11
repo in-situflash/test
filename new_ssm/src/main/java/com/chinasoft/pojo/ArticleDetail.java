@@ -14,7 +14,7 @@ public class ArticleDetail {
 	private String username;						  //发帖人用户名
 	private Date a_createtime;                        //发帖时间
 	private Date create_time;                         //发帖人注册时间
-	private int likes;                                //点赞数
+	private int a_likes;                              //点赞数
 	public int getA_id() {
 		return a_id;
 	}
@@ -51,14 +51,14 @@ public class ArticleDetail {
 	public void setCreate_time(Date create_time) {
 		this.create_time = create_time;
 	}
-	public int getLikes() {
-		return likes;
+	public int getA_likes() {
+		return a_likes;
 	}
-	public void setLikes(int likes) {
-		this.likes = likes;
+	public void setA_likes(int a_likes) {
+		this.a_likes = a_likes;
 	}
 	public ArticleDetail(int a_id, String title, String essay, String username, Date a_createtime, Date create_time,
-			int likes) {
+			int a_likes) {
 		super();
 		this.a_id = a_id;
 		this.title = title;
@@ -66,7 +66,7 @@ public class ArticleDetail {
 		this.username = username;
 		this.a_createtime = a_createtime;
 		this.create_time = create_time;
-		this.likes = likes;
+		this.a_likes = a_likes;
 	}
 	public ArticleDetail() {
 		super();
@@ -75,7 +75,8 @@ public class ArticleDetail {
 	@Override
 	public String toString() {
 		return "ArticleDetail [a_id=" + a_id + ", title=" + title + ", essay=" + essay + ", username=" + username
-				+ ", a_createtime=" + a_createtime + ", create_time=" + create_time + ", likes=" + likes + "]";
+				+ ", a_createtime=" + a_createtime + ", create_time=" + create_time + ", a_likes=" + a_likes + "]";
 	}
+	
 	
 }
