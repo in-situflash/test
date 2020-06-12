@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 import com.chinasoft.pojo.User;
 
 public interface UserMapper {
-	
+	//Å·ÓñÍþ
 	void addUserNoPar();
 	
 	void addUserByPar(User user);

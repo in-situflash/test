@@ -71,7 +71,7 @@
 				<div class="input_text" >   
 					<div id="message"style="position:absolute;color:red;margin-top:-20px;margin-left:100px;" > </div>
 				
-				  	<!--<form  action="login.d" method="post" onsubmit="return validateLogin()"> -->
+				  	<!--  <form  action="login.d" method="post" onsubmit="return validateLogin()"> -->
 					
 						<div class="content" >
 							<div class="navbar-header">
@@ -122,7 +122,7 @@
 				<div class="input_text" >   
 					<div id="message"style="position:absolute;color:red;margin-top:-20px;margin-left:100px;" > </div>
 				
-				  	<!--<form  action="login.d" method="post" onsubmit="return validateLogin()"> -->
+				  <!--  	<form  action="login.d" method="post" onsubmit="return validateLogin()"> -->
 						<div class="content" >
 							<div class="navbar-header">
 					           	<div>

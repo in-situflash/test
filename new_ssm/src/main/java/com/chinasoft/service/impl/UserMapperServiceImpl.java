@@ -10,7 +10,7 @@ import com.chinasoft.service.UserMapperService;
 
 @Service
 public class UserMapperServiceImpl implements UserMapperService {
-
+	//Å·ÓñÍþ
 	@Autowired
 	UserMapper mapper;
 

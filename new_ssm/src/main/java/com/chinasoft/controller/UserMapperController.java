@@ -28,6 +28,7 @@ public class UserMapperController {
 		mav.setViewName("/WEB-INF/menu.jsp");
 		return mav;
 	}
+	//Å·ÓñÍþ
    
 	/*@RequestMapping("/selectById")
 	@ResponseBody

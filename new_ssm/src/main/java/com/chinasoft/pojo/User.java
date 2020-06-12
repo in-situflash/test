@@ -3,6 +3,7 @@ package com.chinasoft.pojo;
 import java.io.Serializable;
 
 public class User  implements Serializable{
+	//Å·ÓñÍþ
 	private static final long serialVersionUID = 1L;
 	private int userid;
 	private String username;
