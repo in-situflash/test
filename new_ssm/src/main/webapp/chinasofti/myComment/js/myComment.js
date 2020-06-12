@@ -9,6 +9,8 @@ function GetQueryString(name)
      if(r!=null)return  unescape(r[2]); return null;
 }
 $(function(){
+
+	console.log("初始化myComment.js");
   
 	KindEditor.options.cssData = 'body {font-family:微软雅黑;}',
 	editor = KindEditor.create('textarea[id="COM_ADD_DES"]', {
@@ -48,7 +50,7 @@ function post_detailed(postUUID){
 
 }
 function DELETE_COM(){
-	var chk_value =[]; 
+	let chk_value =[];
 	$('input[name="DELETE_CHECK_NAME"]:checked').each(function(){ 
 	    chk_value.push($(this).val()); 
 	}); 
@@ -56,8 +58,12 @@ function DELETE_COM(){
 		$.MsgBox.Alert("消息","请先选择需要删除的评论！");
 		return;
 	}
-	
-	
+
+	// 使用-字符拼接所有要删除的id
+	const cid_concat = chk_value.join("-");
+	const url = "/comment/delete?ids="+cid_concat;
+
+	window.location.replace(url);
 }
 function returnComList(){
 	editor.html("");
@@ -65,17 +71,24 @@ function returnComList(){
 	$("#COM_LIST_DIV_ID").attr("style","display:block;");//隐藏div
 	$("#COM_ADD_DIV_ID").attr("style","display:none;");//隐藏div
 }
-function EDIT_COM(cmUUID){
-	
-	    		editor.html("测试评论1");
-	    		var html="";
-	    		html+='<button type="button" class="btn btn-info" onclick="editComCheck(\''+cmUUID+'\')">编辑</button>';
-	    		html+='<button type="button" class="btn btn-default" onclick="returnComList()">返回</button>';
-	    		$("#editButtion").html(html);
-	    		
+function EDIT_COM(com_idx){
 
-	
-	
+	var com_cont_id = "#comment_"+com_idx+" #comment_content";
+	var content = $(com_cont_id).text();
+
+	var com_cid_id = "#comment_"+com_idx;
+	var c_id = $(com_cid_id).attr("value");
+
+	// console.log("comment content: "+content);
+	// console.log("c_id: "+c_id);
+
+	editor.html(content);
+	var html="";
+
+	// TODO: 嵌入评论ID
+	html+='<button type="button" class="btn btn-info" onclick="editComCheck(\''+c_id+'\')">编辑</button>';
+	html+='<button type="button" class="btn btn-default" onclick="returnComList()">返回</button>';
+	$("#editButtion").html(html);
     
     
 	$("#COM_LIST_DIV_ID").attr("style","display:none;");//隐藏div
@@ -124,17 +137,47 @@ function GOTO_POST_PREVIOUS_PAGE(){
 	 
 }
 
-function editComCheck(cmUUID){
+function editComCheck(cid){
 	var cmText=editor.html().trim();
 
 	if(cmText==""){
-		$("#tishi").html("评论内容不能为空");
+
 		return;
 	}
 	
 
-	    		window.location.replace("myComment.html?radm="+Math.random());
-	    		
+//	    		window.location.replace("myComment.html?radm="+Math.random());
+	var url = "/comment/edit?cid="+cid+"&cont="+cmText;
+	// console.log("edit url: "+url);
+	$("#tishi").html("编辑成功!");
 
+	setTimeout(()=>{
+		window.location.replace(url);
+	}, 2000);
 	
 }
+
+let monthMap = {
+	"Jan": "01",
+	"Feb": "02",
+	"Mar": "03",
+	"Apr": "04",
+	"May": "05",
+	"Jun": "06",
+	"Jul": "07",
+	"Aug": "08",
+	"Sep": "09",
+	"Oct": "10",
+	"Nov": "11",
+	"Dec": "12"
+}
+
+function formalizeDateTime(time){
+	console.log(time);
+
+	let splits = time.split(" ");
+	console.log(splits);
+
+	return time;
+}
+

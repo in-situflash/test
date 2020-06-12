@@ -20,6 +20,7 @@ public class UserMapperController {
 	@Autowired
 	UserMapperServiceImpl service;
 	
+<<<<<<< HEAD
 	@RequestMapping("/selectLogin")
 	public ModelAndView selectLogin(String username,String password,ModelAndView mv,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -31,6 +32,17 @@ public class UserMapperController {
 	//Å·ÓñÍþ
    
 	/*@RequestMapping("/selectById")
+=======
+	@RequestMapping("/test")
+	@ResponseBody
+	public String test() {
+		System.out.println("Entering userTest...");
+		
+		return "Success!";
+	}
+
+	@RequestMapping("/selectById")
+>>>>>>> branch 'master' of git@github.com:in-situflash/test.git
 	@ResponseBody
 	public ModelAndView selectById() {
 		ModelAndView mav = new ModelAndView();
