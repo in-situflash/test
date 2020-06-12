@@ -22,7 +22,7 @@
 
 <body style="height: auto;">
 
-
+	我是${username}
 	<!--  <div class="container-fluid" id="ORG_LIST_DIV_ID">-->
 	<div class="container-fluid" id="COM_LIST_DIV_ID">
 		<div class="row">
@@ -273,26 +273,32 @@
 		    window.location.href = "http://localhost:8080/new_ssm/articleDetail/deleteCommentByC_id?c_id="+c_id;
 		});	
 		$(".c_likes").click(function(){
-			var target = $(this);
+			var that = $(this);
 		   	var dataSend = {
-	       		c_id:target.next().val()
+	       		c_id:that.next().val()
 	       	};
-	       
-		    $.ajax({
-                type: "POST",
-                url: "http://localhost:8080/new_ssm/articleDetail/updateC_likesByC_id",
-                data: JSON.stringify(dataSend),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                async: false,
-                success: function (data) {
-                	target.html("赞："+data.c_likes); 
-                }, 
-                error:function(){ 
-                	alert("发生错误"); 
-                }
-                
-            });
+			var color = target.css("color");  
+			var rgb = color.split(",");
+			if(rgb[1] == 86){
+				that.css({"color":"red"}); 
+				$.ajax({
+		         	type: "POST",
+		         	url: "http://localhost:8080/new_ssm/articleDetail/updateC_likesByC_id",
+		         	data: JSON.stringify(dataSend),
+		         	contentType: "application/json; charset=utf-8",
+		         	dataType: "json",
+		         	async: false,
+		         	success: function (data) {
+		            	target.html("赞："+data.c_likes); 
+		         	}, 
+		            error:function(){ 
+		                alert("发生错误"); 
+		            }
+		        });
+			}else if(rgb[1] == 0){
+				$(this).css({"color":"#0056B3"});   
+			}
+  
 		});		    	
 		$(".a_likes").click(function(){
 			var target = $(this);
