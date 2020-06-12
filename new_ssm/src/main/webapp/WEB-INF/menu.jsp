@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
+	
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>">
 <!-- imetadata-data -->
 <!DOCTYPE html>
 <html>
@@ -61,7 +67,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<a>
-						<span class="user-name-csdc">欢迎登录：<span id=userNameSpan>ADMIN</span></span>
+						<span class="user-name-csdc">欢迎登录：<span id=userNameSpan>${ADMIN}</span></span>
 					</a>
 				</li>
 		

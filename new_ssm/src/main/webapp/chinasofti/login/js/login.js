@@ -34,7 +34,8 @@ function subLogin(){
    
 	
 
-    window.location.replace("menu.html?menuUserName=sjm");
+    //window.location.replace("menu.html?menuUserName=sjm");
+    window.location.replace("http://localhost:8080/new_ssm/mypostController/tomenu");
         		
         		//alert(JSON.stringify(json));
    
