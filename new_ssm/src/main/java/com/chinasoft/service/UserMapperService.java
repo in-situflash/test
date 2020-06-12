@@ -3,7 +3,7 @@ package com.chinasoft.service;
 import com.chinasoft.pojo.User;
 
 public interface UserMapperService {
-
+	//Å·ÓñÍþ
 	User selectById(int id);
 	
 	void InsertByUser(User user);
@@ -11,4 +11,6 @@ public interface UserMapperService {
 	void deleteById(int id);
 	
 	void updateByUser(User user);
+	
+	User login(String username,String password);
 }

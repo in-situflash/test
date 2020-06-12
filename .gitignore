@@ -1,7 +1,0 @@
-**/.idea/**
-*/.project
-**/.settings/**
-new_ssm/target/
-*.MF
-*.iml
-*.class

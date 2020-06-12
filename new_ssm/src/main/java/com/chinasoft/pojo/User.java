@@ -3,20 +3,21 @@ package com.chinasoft.pojo;
 import java.io.Serializable;
 
 public class User  implements Serializable{
+	//Å·ÓñÍþ
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private int userid;
 	private String username;
 	private String password;
-	private String phone;
-	private String address;
 	private String email;
-	private int c_id;
-
-	public int getId() {
-		return id;
+	private String create_time;
+	private String gender;
+	private String privilege;
+	
+	public int getUserid() {
+		return userid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 	public String getUsername() {
 		return username;
@@ -30,55 +31,45 @@ public class User  implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getC_id() {
-		return c_id;
+	public String getCreate_time() {
+		return create_time;
 	}
-	public void setC_id(int c_id) {
-		this.c_id = c_id;
+	public void setCreate_time(String create_time) {
+		this.create_time = create_time;
 	}
-
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+	public String getGender() {
+		return gender;
 	}
-	
-	public String getAddress() {
-		return address;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public String getPrivilege() {
+		return privilege;
 	}
-	public User(int id, String username, String password, String phone, String address, String email, int c_id) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.phone = phone;
-		this.address = address;
-		this.email = email;
-		this.c_id = c_id;
+	public void setPrivilege(String privilege) {
+		this.privilege = privilege;
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", phone=" + phone
-				+ ", address=" + address + ", email=" + email + ", c_id=" + c_id + "]";
+		return "User [userid=" + userid + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", create_time=" + create_time + ", gender=" + gender + ", privilege=" + privilege + "]";
 	}
-	
-	
-	
-	
-	
+	public User(int userid, String username, String password, String email, String create_time, String gender,
+			String privilege) {
+		super();
+		this.userid = userid;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.create_time = create_time;
+		this.gender = gender;
+		this.privilege = privilege;
+	}
 	
 }

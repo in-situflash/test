@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 import com.chinasoft.pojo.User;
 
 public interface UserMapper {
-	
+	//Å·ÓñÍþ
 	void addUserNoPar();
 	
 	void addUserByPar(User user);
@@ -20,7 +20,7 @@ public interface UserMapper {
 	@Select("select * from user")
 	List<User>  selectAll();
 	
-	User selectLogin(User user);
+	User selectLogin(@Param("username")String username,@Param("password")String password);
 	
 	List<User> selectOrderBy(@Param("column")String column);
 	
