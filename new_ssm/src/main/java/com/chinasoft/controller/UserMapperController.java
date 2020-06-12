@@ -20,7 +20,7 @@ public class UserMapperController {
 	@Autowired
 	UserMapperServiceImpl service;
 	
-<<<<<<< HEAD
+
 	@RequestMapping("/selectLogin")
 	public ModelAndView selectLogin(String username,String password,ModelAndView mv,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -29,7 +29,7 @@ public class UserMapperController {
 		mav.setViewName("/WEB-INF/menu.jsp");
 		return mav;
 	}
-	//Å·ÓñÍþ
+	//Å·ï¿½ï¿½ï¿½ï¿½
    
 	/*@RequestMapping("/selectById")
 =======
