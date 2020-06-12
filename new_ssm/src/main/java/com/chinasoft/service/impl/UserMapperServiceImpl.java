@@ -1,5 +1,6 @@
 package com.chinasoft.service.impl;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,10 @@ public class UserMapperServiceImpl implements UserMapperService {
 	public User selectById(int id) {
 		User user = mapper.selectOneByPar(id);
 		return user;
+	}
+	
+	public User login(String username, String password) {
+		return mapper.selectLogin(username, password);
 	}
 
 	public void InsertByUser(User user) {

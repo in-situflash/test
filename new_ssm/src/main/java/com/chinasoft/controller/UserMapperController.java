@@ -1,8 +1,12 @@
 package com.chinasoft.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,8 +19,17 @@ public class UserMapperController {
 
 	@Autowired
 	UserMapperServiceImpl service;
-
-	@RequestMapping("/selectById")
+	
+	@RequestMapping("/selectLogin")
+	public ModelAndView selectLogin(String username,String password,ModelAndView mv,HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		User user = service.login(username, password);
+		mav.addObject("user", user);
+		mav.setViewName("/WEB-INF/menu.jsp");
+		return mav;
+	}
+   
+	/*@RequestMapping("/selectById")
 	@ResponseBody
 	public ModelAndView selectById() {
 		ModelAndView mav = new ModelAndView();
@@ -53,5 +66,5 @@ public class UserMapperController {
 		mav.addObject("info", "更改成功");
 		mav.setViewName("/index.jsp");
 		return mav;
-	}
+	}*/
 }
