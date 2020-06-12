@@ -70,7 +70,7 @@
 						<span>${articleDetail.essay}</span>
 					</div>
 						<div id="postAtt">
-							|&nbsp;<a id="praisecNum" href="javascript:void(0);" class="a_likes" >赞：${articleDetail.a_likes}</a>
+							|&nbsp;<a id="praisecNum" href="javascript:void(0);" class="a_likes" style="color:default;">赞：${articleDetail.a_likes}</a>
 							<input value="${articleDetail.a_id}" hidden="true"></input>
 						</div>
 					</div>
@@ -140,7 +140,7 @@
 									<div style="float:left">
 										<div class="col-sm-12" id="commentVoice${status.count}" >
 											&nbsp;|&nbsp;
-											<a id="praisecNum" class="c_likes"  href="javascript:void(0);" onclick="hotsPraiseClick('46dc37890bbc49629384024d2f17beda','c9c8ee13e83149379d56d34ea7913d69')">赞：${item.c_likes}</a>
+											<a id="praisecNum" class="c_likes" style="color:default;"  href="javascript:void(0);" onclick="hotsPraiseClick('46dc37890bbc49629384024d2f17beda','c9c8ee13e83149379d56d34ea7913d69')">赞：${item.c_likes}</a>
 											<input value="${item.c_id}" hidden="true"></input>
 										</div>
 									</div>
@@ -315,7 +315,21 @@
                 }
                 
             });
-		});		    		
+		});		    
+		function returnPostList(){
+			window.history.go(-1);
+		}
+		$(".a_likes,.c_likes").click(function(){ 
+			var color = $(this).css("color");  
+			console.log(color);
+			var rgb = color.split(",");
+			if(rgb[1] == 86){
+				$(this).css({"color":"red"}); 
+			}else if(rgb[1] == 0){
+				$(this).css({"color":"#0056B3"});   
+			}
+			//else{$(this).css({"float":"left","font-size":"12px"});} 
+		}); 		
 	</script>
 </body>
 </html>
